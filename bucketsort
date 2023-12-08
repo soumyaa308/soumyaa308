@@ -1,4 +1,8 @@
- Function to create list of 12th class percentage of 'n' students of a class
+Write a Python program to store 12th class percentage of students in array. Write function
+    for sorting array of floating point numbers in ascending order using Bucket sort and 
+    display top five scores. 
+
+Function to create list of 12th class percentage of 'n' students of a class
 
 def percentage_list(n):
     req_lst=[]
