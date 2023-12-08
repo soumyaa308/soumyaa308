@@ -1,3 +1,9 @@
+WRITE A PYTHON PROGRAM TO COMPUTE THE FOLLOWING COMPUTATIONS ON THE MATRIX:
+          (1) ADDITION OF TWO MATRIX.
+          (2) SUBTRACTION OF TWO MATRIX.
+          (3) MULTIPLICATION OF TWO MATRIX.
+          (4) TRANSPOSE OF A MATRIX.
+
 #function for the representation of the matrix
 def matrix_repre(m,n):
     matrix=[]
