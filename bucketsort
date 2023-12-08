@@ -1,0 +1,76 @@
+ Function to create list of 12th class percentage of 'n' students of a class
+
+def percentage_list(n):
+    req_lst=[]
+    print("Enter 12th class percentage of students : ")
+    for i in range(n):
+        percentage=float(input())
+        while(percentage<0.0 or percentage>100.0):
+            percentage=float(input("Invalid input! Please enter valid percentage :\n"))
+        req_lst.append(round(percentage,2))
+    return req_lst
+
+#******************************************************************************************************#
+
+# Function for sorting a list of floating point numbers in ascending order by using
+# 'Bucket sort' :-
+
+def bucket_sort(lst):
+    min_value=min(lst)
+    max_value=max(lst)
+    buckets=[]
+    for i in range(len(lst)):
+        buckets.append([])
+    for num in lst:
+        b_index=int(((num-min_value)/(max_value-min_value))*(len(lst)-1))
+        buckets[b_index].append(num)
+    for bucket in buckets:
+        # Use 'Insertion sort' to sort each bucket
+        bucket=insertion_sort(bucket)
+
+    k=0
+    for i in range(len(lst)):
+        for j in range(len(buckets[i])):
+            lst[k]=buckets[i][j]
+            k+=1
+    return lst
+
+#******************************************************************************************************#
+
+# Function for sorting each bucket of floating point numbers in ascending order by using
+# 'Insertion sort' :-
+
+def insertion_sort(lst):
+    for i in range(1,len(lst)):
+        temp=lst[i]
+        j=i-1
+        while(j>=0 and lst[j]>temp):
+            lst[j+1]=lst[j]
+            j-=1
+        lst[j+1]=temp
+    re
+# Ask number of students in the class and store in variable 'n'
+n=int(input("Enter number of students in the class : "))
+
+
+# If 'n' is valid then create list of their 12th class percentage and sort it 
+# else display appropriate message
+
+if(n>0):
+    percentage_lst=percentage_list(n)
+    if(n==1):
+        print("The Sorted list of 12th class percentage :\n",percentage_lst)
+    if(n>1):
+        print("The Unsorted list of 12th percentage :\n",percentage_lst)
+        print("The Sorted lists in ascending order of 12th class percentage : ")
+        print("  a) by 'Bucket sort' :\n    ",bucket_sort(percentage_lst))
+        print("  b) by 'Insertion sort' :\n    ",insertion_sort(percentage_lst))
+
+    # Display top five scores
+    # i.e. Display last five scores from sorted percentage list in reverse manner
+    top5=percentage_lst[-1:-6:-1]
+    print("Top scores in the class are : ")
+    for score in top5:
+        print("   ->",score)
+else:
+    print("Oops! Something went wrong. Please try again.")
