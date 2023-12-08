@@ -1,3 +1,6 @@
+write c++ program for sorting appointment schedule for day. Appointments are booked randomly using linked list.set start and end time and
+min and max duration.
+
 #include<iostream>
 using namespace std;
 int size;	// No of Nodes or Appointments
