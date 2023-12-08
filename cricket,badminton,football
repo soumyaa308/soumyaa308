@@ -1,0 +1,65 @@
+groupA=[]
+groupB=[]
+groupC=[]
+uni=[]
+u=int(input("enter total number of students"))
+for i in range(u):
+    uni.append(i+1)
+print(uni)
+c=int(input("enter number of students who play cricket"))
+for i in range(c):
+    cri=int(input("enter roll no"))
+    groupA.append(cri)
+print(groupA)
+b=int(input("enter number of students who play badminton"))
+for i in range(b):
+    bad=int(input("enter roll no"))
+    groupB.append(bad)
+print(groupB)
+f=int(input("enter number of students who play football"))
+for i in range(f):
+    foot=int(input("enter roll no"))
+    groupC.append(foot)
+print(groupC)
+#both cricket and badminton
+def cric_bad_both():
+    cri_bad=[]
+    for i in groupA:
+        for j in groupB:
+            if i==j:
+                cri_bad.append(i)
+    print(cri_bad)
+print("roll nos who play cricket and badminton")
+cric_bad_both();
+#either cricket or badminton but not both
+def either_cri_bad():
+    either_cric_badm=[]
+    for i in groupA:
+        if i not in groupB:
+            either_cric_badm.append(i)
+    for j in groupB:
+        if j not in groupA:
+            either_cric_badm.append(j)
+    print(either_cric_badm)
+print("roll no who play either cricket or badminton")
+either_cri_bad();
+#neither cricket nor badminton
+def neither_cric_nor_bad():
+    neither_cri_bad=[]
+    for i in groupC:
+        if i not in groupA and i not in groupB:
+            neither_cri_bad.append(i)
+    print(neither_cri_bad)
+print("roll no who play neither cricket nor badminton")
+neither_cric_nor_bad();
+#number of students who play cricket and football but not badminton
+def cri_and_foot_but_not_bad():
+    cri_bad_not_foot=[]
+    for i in groupA:
+        if i in groupC:
+            if i not in groupB:
+                cri_bad_not_foot.append(i)
+    print(cri_bad_not_foot)
+print("roll no who play cricket and football but not badminton")
+cri_and_foot_but_not_bad();
+print("THANK YOU")
