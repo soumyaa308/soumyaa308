@@ -1,0 +1,72 @@
+Write a python program to store marks scored in the subject "fundamental of Data Structure" by n students in the
+class.Write functions to compute following:
+     (a)The average score of the class
+     (b)Highest and lowest score of the class.
+     (c)Count of students who were absent for the test.
+     (d)Display marks with highest frequency.
+"""
+number=int(input("enter the total number of students in the class"))
+num=[]
+mark=[]
+total=0
+numb=0
+#for average
+for i in range(number):
+    num.append(i+1)
+print(num)
+print("enter -1 for the absent students")
+
+for i in range(number):
+    while True:
+        mar_k=int(input("enter the marks serially as per roll no"))
+        if mar_k== -1:
+            break
+        elif 0<=mar_k<=70:
+            mark.append(mar_k)
+            total+=mar_k
+            numb+=1
+            break
+        else:
+            print("invalid mark")
+print(mark)
+print("total mark is",total)
+print("number of students for average",numb)
+average=total/numb
+print("(1)average is",average)
+#to find highest mark
+highest=mark[0]
+for mar_k in mark:
+    if mar_k>highest:
+        highest=mar_k
+print("(2)highest mark obtained is",highest)
+#to find lowest mark
+lowest=mark[0]
+for mar_k in mark:
+    if mar_k<lowest:
+        lowest=mar_k
+print("(3)lowest mark obtained is",lowest)
+#to find absent students
+def absent():
+    absent=number-numb
+    print("(4)total number of absent students is:-",absent)
+absent();
+#to display marks with highest frequency
+def high_frequency():
+    numo=0
+    sumo=0
+    cumo=0
+    for mar_k in mark:
+        if 0<mar_k<25:
+            numo+=1
+        elif 26<mar_k<50:
+            sumo+=1
+        else:
+            cumo+=1
+    if numo>sumo and numo>cumo:
+        print("(5)highest frequency is between 0 to 25")
+    elif sumo>numo and sumo>cumo:
+        print("(5)highest frequency is between 25 to 50 ")
+    else:
+        print("(5)highest frequency is between 50 to 70")
+high_frequency();
+print("thank you")
